@@ -16,6 +16,8 @@ class GetAllUsers(Resource):
                 "password" : user.password
             }
 
-            allUser.append(Users(userData))
+            allUser.append(userData)
 
-            return {userData}
+
+
+        return {"data" : allUser}
