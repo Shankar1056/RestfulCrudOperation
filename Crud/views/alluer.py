@@ -1,19 +1,23 @@
-from flask import request
-from flask_login import login_user
 from flask_restful import Resource
-from werkzeug.security import check_password_hash
-
 from Crud.models import Users
 from Crud.hardcodedata import LoginMessages
 
 
 class GetAllUsers(Resource):
-    def post(self):
+    def get(self):
 
         users = Users.query.all()
         allUser = []
-        for uer in users:
+        for user in users:
+            userData = {
+                "id": user.id,
+                "name" : user.name,
+                "email" : user.email,
+                "password" : user.password
+            }
+
+            allUser.append(Users(userData))
 
 
 
-            return {'message': LoginMessages.success}
+            return {userData}
