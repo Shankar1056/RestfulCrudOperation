@@ -18,6 +18,4 @@ class GetAllUsers(Resource):
 
             allUser.append(Users(userData))
 
-
-
             return {userData}
